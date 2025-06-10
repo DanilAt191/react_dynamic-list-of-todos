@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -22,7 +21,7 @@ const prepareTodo = (todos: Todo[], filter: Filter): Todo[] => {
   if (filter.search !== '') {
     const normalizeSearch = filter.search.trim().toLowerCase();
 
-    preparedTodo = todos.filter(todo =>
+    preparedTodo = preparedTodo.filter(todo =>
       todo.title.toLowerCase().includes(normalizeSearch),
     );
   }
@@ -70,6 +69,7 @@ export const App: React.FC = () => {
                 search={search}
                 onChangeInput={setSearch}
                 chooseStatus={setSelect}
+                select={select}
               />
             </div>
 

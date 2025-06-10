@@ -5,12 +5,14 @@ interface TodoFilterProps {
   search: string;
   onChangeInput: (v: string) => void;
   chooseStatus: (v: Select) => void;
+  select: Select;
 }
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
   search,
   onChangeInput = () => {},
   chooseStatus = () => {},
+  select,
 }) => {
   return (
     <form className="field has-addons">
@@ -18,6 +20,7 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
         <span className="select">
           <select
             data-cy="statusSelect"
+            value={select}
             onChange={event => chooseStatus(event.target.value as Select)}
           >
             <option value={Select.All}>All</option>
